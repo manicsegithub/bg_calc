@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG_Calc</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" 
+    integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+    <script>
+      function calculate(shareprice,eps,g,y){
+        
+       var n1 = parseFloat(document.getElementById("shareprice").value);
+       var n2 = parseFloat(document.getElementById("eps").value);
+       var n3 = parseFloat(document.getElementById("g").value);
+       var n4 = parseFloat(document.getElementById("y").value);
+       //var ishare = parseFloat(document.getElementById("ishare").value);
+      // var n5 = 0;
+       //n5 =(shareprice,eps,g,y);
+       n1 = n2 * (8.5 + 2 * n3)*4.4/n4;
+       ishare = n1;
+       
+       document.getElementById("ishare").value = ishare;
+
+       var n5 = parseFloat(document.getElementById("ishare").value);
+       if(n5>0){
+        n5 = "OverValued";
+       }else{
+        n5 = "UnderValued";
+       }
+
+       document.getElementById("load").value = n5;
+       
+      }
+    </script>
+
+
+</head>
+<body style="margin-left: 3%;margin-right: 3%;">
+    <nav class="navbar navbar-light bg-light" style="margin-top: 1%;margin-left: 3%;margin-right: 3%;">
+        <div class="container-fluid" >
+          <a class="navbar-brand" href="#" style="padding-left: 2%;font-weight: 500;">BG Brain</a>
+        </div>
+      </nav>
+      
+      <div>
+        <img  src="E:\BK 13-01-2024\Win 10 -2\15.Projects\4.BG_Calc\images.jpg" style="float:right;width:600px;height:400px;margin-right:3%"> 
+      <h1 style="margin-left: 5%;margin-right: 5%; margin-top: 4%;color: brown;">GRAHAM </h1>
+      
+      <h1 style="margin-left: 5%;margin-right: 5%; margin-top: 1%;color: burlywood;">CALCULATOR.. </h1>  
+      <hr style="margin-left: 5%;">
+      </div> 
+      
+     
+      <p style="margin-left: 5%;margin-right: 3%; margin-top: 3%;font-weight: 700;">Benjamin Graham, also known as the father of value investing, 
+        <br>was known for picking cheap stocks. The graham calculator is a good tool 
+        <br>to find a rough estimate of the intrinsic value. It is simple and very easy to use.</p>  
+
+        <hr style="margin-left: 5%;">
+      
+      <h2 style="margin-left: 5%;margin-top: 10%;color:burlywood">GRAHAM’S FORMULA</h2>
+      <p style="margin-left: 10%;margin-right: 5%; margin-top: 3%;font-weight: 700;"> 
+        V* = Intrinsic value per share <br>
+        EPS = Earnings per share <br>
+        g = Growth rate of the company <br>
+        Y = 10 Yrs government bond rate</p>
+
+        <p class="inset" style="border-style: inset;margin-left: 15%;margin-right: 15%; margin-top: 3%;font-size: 42px;text-align: center;"> V* = EPS * (8.5 + 2g) * 4.4 / Y</p>
+        <hr style="margin-left: 5%;margin-right: 5%;margin-top: 2%;">
+        <h3 style="margin-left: 35%;margin-right: 30%; margin-top: 2%;">SIMPLE GRAHAM CALCULATOR</h3>
+        <hr style="margin-left: 15%;margin-right: 15%;">
+        <p style="margin-left: 30%;margin-right: 30%; font-weight: 700;text-transform:uppercase;">Find the intrinsic value of a company</p>
+        <hr style="margin-left: 15%;margin-right: 15%;">
+        
+        <div >
+        <form action="" >
+
+          <label for="" style="margin-left: 30%;margin-right: 3%; font-weight: 700;display: inline-block; width: 300px;">Current Share price* </label> 
+          <input type="number" id="shareprice">
+
+          <label for="" style="margin-left: 30%; margin-right: 3%;margin-top: 1%;font-weight: 700;display: inline-block;width: 300px;">EPS for the last four quarters (EPS)* </label> 
+          <input type="number" id="eps">
+
+          <label for="" style="margin-left: 30%; margin-right: 3%;margin-top: 1%;font-weight: 700;display: inline-block;width: 300px;">Expected growth rate (g)*</label> 
+          <input type="number" id="g">
+
+          <label for="" style="margin-left: 30%; margin-right: 3%;margin-top: 1%;font-weight: 700;display: inline-flex;width: 300px;">The current yield on AAA corporate bonds (Y)</label> 
+          <input type="number" value="4.22" id="y"> <p style="margin-left: 55%; margin-right: 3%;display: inline-block;width: 300px;">Currently, the AAA corporate bonds in the United States are yielding close to 4.22% per annum. Please use this data carefully as it is subjected to change in future.</p>
+          
+        </form>
+      </div>
+      <hr style="margin-left: 15%;margin-right: 15%;">
+      <p style="margin-left: 25%;margin-right: 3%; font-weight: 700;text-transform:uppercase;">The field below will show the intrinsic value of the stock based on graham's number</p>
+      <hr style="margin-left: 15%;margin-right: 15%;">
+
+      <form action="" >
+
+        <label for="" style="margin-left: 30%;margin-right: 3%; font-weight: 700;display: inline-block; width: 300px;">Intrinsic Value per share</label> 
+        <input type="number" id="ishare" value="0.0">
+
+        <label for="" style="margin-left: 30%; margin-right: 3%;margin-top: 1%;font-weight: 700;display: inline-block;width: 300px;">Overvalued (%)</label> 
+        <input type="text" id="load"> <p style="margin-left: 55%; margin-right: 5%;margin-top: 1%;display: inline-block;width: 300px;">If the above value is positive, then the stock is OVERVALUED compared to the current market price of the stock. Else, if it is negative, then the stock is UNDERVALUED at the current price.</p>
+
+
+        <button onclick="calculate()" style="margin-left: 54.6%;margin-right: 3%;margin-top: 1%; font-weight: 700;display: inline-block; width: 190px;">Calculate</button>
+
+
+      </form>
+      <hr style="margin-left: 5%;margin-right: 5%;">
+
+      <div>
+        <img src="E:\BK 13-01-2024\Win 10 -2\15.Projects\4.BG_Calc\2.jpg" alt="" style="float:left;width:600px;height:400px;margin-right:3%;margin-left: 3%;">
+        <h2 style="text-align: center;"> ABOUT  <span style="font-weight: 700;color: brown;">BEN GRAHAM </span></h2>
+        <h6 style="margin-left: 5%;margin-right: 3%; margin-top: 3%;font-weight: 700;">BENJAMIN GRAHAM, ALSO KNOWN AS THE FATHER OF VALUE INVESTING, 
+          WAS KNOWN FOR PICKING CHEAP STOCKS. HE HAS WRITTEN TWO ALL-TIME BEST SELLING BOOKS- <span style="color: burlywood;">“THE INTELLIGENT INVESTOR” AND “SECURITY ANALYSIS”</span>.</h6>
+        <p style="margin-left: 5%;margin-right: 3%; margin-top: 3%;"> Coincidently, he was also the mentor of the legendary investor (and the third richest person in the world), 
+          Warren Buffett -who is supposed to inherit his value investing principles from Benjamin Graham.</p>
+        <p style="margin-left: 5%;margin-right: 3%; margin-top: 3%;">The Graham Calculator is a 
+          good tool to find a rough estimate of the intrinsic value. It is simple and very easy to use. 
+          Although the values are not as pinpoint as the <span style="font-weight: 700;">DCF valuation method</span>, however, it is a good tool for shorthand analysis. Moreover, as it is said: 
+          <span style="font-weight: 700;">“It is better to be approximately right, 
+          than precisely wrong”</span></p>
+      </div>
+
+      <br>
+
+        <div class="container-fluid" style="margin-top: 1%;margin-left: 0%;margin-right: 0dvi;background-color: rgb(219, 219, 219);">
+          <p style="text-align: center;">2024 © BOSS Technologies Pvt Ltd - All Right Reserved</p>
+        </div>
+      
+
+</body>
+</html>
